@@ -18,7 +18,12 @@ import "./index.css";
  */
 const cache = new InMemoryCache();
 const link = new createHttpLink({
-    uri: "http://localhost:8080/graphql",
+    uri: () => {
+        if (process.env.NODE_ENV === "production") {
+            return "https://mission-backend.herokuapp.com:13042/graphql";
+        }
+        return "http://localhost:8080/graphql";
+    },
     credentials: "include",
 });
 
