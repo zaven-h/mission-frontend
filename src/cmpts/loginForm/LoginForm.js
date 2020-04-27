@@ -24,6 +24,7 @@ function LoginForm() {
 
     return (
         <div className="LoginForm">
+            <h1>Log In</h1>
             <div className="LoginForm__login">
                 <input type="text" id="email" placeholder="email..." value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input

@@ -29,6 +29,7 @@ function SignupForm() {
 
     return (
         <div className="SignupForm">
+            <h1>Sign Up</h1>
             <div className="SignupForm__signup">
                 <input type="text" id="email" placeholder="email..." value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input
