@@ -18,13 +18,20 @@ function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const [loginMutation, loginMutatioResp] = useMutation(LOGIN, {
+    const [loginMutation, { error }] = useMutation(LOGIN, {
         refetchQueries: [{ query: GET_CURRENT_USER }],
+        onError: (error) => {},
     });
 
     return (
         <div className="LoginForm">
             <h1>Log In</h1>
+            {error &&
+                error.graphQLErrors.map(({ message }, i) => (
+                    <div key={i} className="error">
+                        {message}
+                    </div>
+                ))}
             <div className="LoginForm__login">
                 <input type="text" id="email" placeholder="email..." value={email} onChange={(e) => setEmail(e.target.value)} />
                 <input
@@ -37,7 +44,7 @@ function LoginForm() {
                 <button onClick={() => loginMutation({ variables: { email, password } })}>Log In</button>
             </div>
             <div className="LoginForm__signup">
-                <Link to="signup">Create Account</Link>
+                <Link to="/signup">Create Account</Link>
             </div>
         </div>
     );
