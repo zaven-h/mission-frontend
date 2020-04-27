@@ -18,6 +18,7 @@ function Header() {
     return (
         <div className="Header">
             <span>{data.currentUser.email}</span>
+            <div>You're logged in</div>
             <button onClick={logout}>Log Out</button>
         </div>
     );
