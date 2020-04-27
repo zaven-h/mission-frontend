@@ -20,7 +20,7 @@ const cache = new InMemoryCache();
 const link = new createHttpLink({
     uri: () => {
         if (process.env.NODE_ENV === "production") {
-            return "https://mission-backend.herokuapp.com:13042/graphql";
+            return "https://mission-backend.herokuapp.com/graphql";
         }
         return "http://localhost:8080/graphql";
     },
