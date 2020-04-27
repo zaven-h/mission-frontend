@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "@reach/router";
 import { useMutation } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { GET_CURRENT_USER } from "../../queries";
@@ -33,6 +34,9 @@ function LoginForm() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <button onClick={() => loginMutation({ variables: { email, password } })}>Log In</button>
+            </div>
+            <div className="LoginForm__signup">
+                <Link to="signup">Create Account</Link>
             </div>
         </div>
     );
