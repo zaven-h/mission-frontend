@@ -7,10 +7,11 @@ import "./Header.scss";
 function Header() {
     const { loading, error, data } = useQuery(GET_CURRENT_USER);
 
-    const logout = async () => {
+    const logout = () => {
         jsCookie.remove("access-token");
         jsCookie.remove("refresh-token");
-        window.location.reload();
+
+        // window.location.reload();
     };
 
     if (loading || error) return null;
