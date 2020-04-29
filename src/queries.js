@@ -8,3 +8,14 @@ export const GET_CURRENT_USER = gql`
         }
     }
 `;
+
+export const GET_ORGS = gql`
+    query GetOrgs {
+        orgs {
+            _id
+            properties {
+                name
+            }
+        }
+    }
+`;

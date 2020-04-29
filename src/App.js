@@ -22,7 +22,10 @@ function App() {
                 </Router>
             ) : (
                 <>
-                    <Header /> <OrgsList />
+                    <Header />
+                    <Router>
+                        <OrgsList path="/orgs" />
+                    </Router>
                 </>
             )}
         </div>
