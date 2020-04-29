@@ -8,9 +8,10 @@ function Header() {
     const { loading, error, data } = useQuery(GET_CURRENT_USER);
 
     const logout = () => {
-        jsCookie.remove("access-token");
+        const domain = window.location.host.includes("localhost") ? null : "mission-backend.herokuapp.com";
+        jsCookie.remove("access-token", { domain: domain });
         jsCookie.remove("refresh-token");
-
+        console.log("foo");
         // window.location.reload();
     };
 
