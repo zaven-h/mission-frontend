@@ -9,7 +9,7 @@ function Header() {
 
     const logout = () => {
         const domain = window.location.host.includes("localhost") ? null : "mission-backend.herokuapp.com";
-        jsCookie.remove("access-token", { domain: domain });
+        jsCookie.remove("access-token", { domain: domain, path: "/" });
         jsCookie.remove("refresh-token");
         console.log("foo");
         // window.location.reload();
