@@ -7,6 +7,7 @@ import Home from "./pages/public/home/Home";
 import LoginForm from "./pages/public/loginForm/LoginForm";
 import SignupForm from "./pages/public/signupForm/SignupForm";
 import PublicHeader from "./pages/public/header/Header";
+import LoadingFallback from "./cmpts/LoadingFallback/LoadingFallback";
 
 import Header from "./pages/authenticated/header/Header";
 import OrgsList from "./pages/authenticated/orgsList/OrgsList";
@@ -37,7 +38,8 @@ function App() {
     }
     const isLoggedIn = useIsLoggedIn();
 
-    return (
+    return loading ? 
+        <LoadingFallback /> : (
         <div className="App">
             {/* Set up primary navigation for authenticated or public */}
             {!isLoggedIn ? (
