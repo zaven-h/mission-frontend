@@ -1,23 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import { ApolloClient } from "apollo-client";
-import { InMemoryCache } from "apollo-cache-inmemory";
-import { createHttpLink } from "apollo-link-http";
-import { ApolloProvider } from "@apollo/react-hooks";
-// import gql from "graphql-tag";
+import { ApolloClient, InMemoryCache, HttpLink, ApolloProvider, gql } from "@apollo/client";
 
-import App from "./App";
+import App from "./app/App";
 // Set up initial global css vars, mixins, resets, fonts, and styles
 
-import "./index.css";
+// import "./index.css";
 // import "./styles/setup.scss";
 
 /**
  * Create a new connection/client session for GraphQl
  */
 const cache = new InMemoryCache();
-const link = new createHttpLink({
+const link = new HttpLink({
     uri: () => {
         if (process.env.NODE_ENV === "production") {
             return "https://mission-backend.herokuapp.com/graphql";
@@ -31,6 +27,13 @@ const client = new ApolloClient({
     cache,
     link,
 });
+
+const LOGGED_IN = gql`
+    {
+        isLoggedIn
+    }
+`;
+client.writeQuery({ query: LOGGED_IN, data: { isLoggedIn: false } });
 
 ReactDOM.render(
     <ApolloProvider client={client}>

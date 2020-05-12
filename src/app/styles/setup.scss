@@ -1,0 +1,84 @@
+/*
+* * GLOBAL RESETS
+The below is Eric Meyer's standard browser reset utility. While this will wonderfully
+set all browsers to a common default, please note that it will also reset some expected
+behaviours. For example, "<em />" will not set italics unless specified in the css.
+*/
+@import "reset";
+
+/* 
+* * BORDER-BOX
+The below (in a nutshell) forces padding to be included in the box-model. 
+Without this, layouts can get VERY confusing. 
+Read more about it here: https://css-tricks.com/box-sizing/
+*/
+html {
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+/*
+* * FONT IMPORTS
+Fonts and any other sizes font-adjacent should be expressed in "rem" values. REM is a normalized 
+percentage of the browser's default font size. Basing sizing off of this allows fonts to gracefully
+adapt to user adjusted font sizes. The standard browser default font size is 16px. Thus, a value 
+of 1rem is 16px. 
+*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300&display=swap");
+
+/*
+* * FONT SIZE RESET
+This is to set all text-containing elements to the same default browser font size. 
+The reset does not include input elements. This does.
+*/
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+a,
+abbr,
+address,
+button,
+cite,
+code,
+li,
+label,
+legend,
+caption,
+th,
+td,
+article,
+figcaption,
+footer,
+header,
+hgroup,
+input,
+menu,
+nav,
+option,
+output,
+section,
+summary {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    line-height: 1.35rem;
+    color: #000;
+    padding: 0;
+    margin: 0;
+}
+
+/*
+* * DEFAULT STYLES
+*/
+@import "defaults";

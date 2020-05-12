@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, navigate } from "@reach/router";
-import { useMutation } from "@apollo/react-hooks";
-import gql from "graphql-tag";
+import { useMutation, gql } from "@apollo/client";
 import "./SignupForm.scss";
 
 const SIGNUP = gql`
@@ -10,7 +9,7 @@ const SIGNUP = gql`
     }
 `;
 
-function SignupForm() {
+export default () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [password2, setPassword2] = useState("");
@@ -55,6 +54,4 @@ function SignupForm() {
             </div>
         </div>
     );
-}
-
-export default SignupForm;
+};

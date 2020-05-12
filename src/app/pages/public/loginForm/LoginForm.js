@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "@reach/router";
-import { useMutation } from "@apollo/react-hooks";
-import gql from "graphql-tag";
-import { GET_CURRENT_USER } from "../../queries";
+import { Link, navigate } from "@reach/router";
+import { useMutation, gql } from "@apollo/client";
+import { GET_CURRENT_USER } from "../../../queries";
 import "./LoginForm.scss";
 
 const LOGIN = gql`
@@ -14,13 +13,18 @@ const LOGIN = gql`
     }
 `;
 
-function LoginForm() {
+export default () => {
+    console.log("login form");
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const [loginMutation, { error }] = useMutation(LOGIN, {
         refetchQueries: [{ query: GET_CURRENT_USER }],
         onError: (error) => {},
+        onCompleted: () => {
+            navigate("/orgs");
+        },
     });
 
     return (
@@ -48,6 +52,4 @@ function LoginForm() {
             </div>
         </div>
     );
-}
-
-export default LoginForm;
+};

@@ -1,0 +1,52 @@
+/*
+* * BREAKPOINTS
+Because of it's target audience, this is not a mobile-first appplication. 
+The breakpoints below will be available for any exceptions needed for smaller screens.
+Example: 
+.my-container {
+    padding: 0 100px; // default
+
+    @include breakpoint-sm {
+        padding: 0 20px; // small-screen exception
+    }
+}
+*/
+@mixin breakpoint-sm {
+    // This will hit iPad (not 12.9" pro) portrait and smaller
+    @media only screen and (max-width: 900px) {
+        @content;
+    }
+}
+
+/*
+* * COLORS
+Create color definitions without color names in the vars. This allows
+us to update color schemes later and not have to refactor any code. Yay!
+*/
+// $color-primary: hsl(212, 77, 32);
+// $color-primary-muted: hsl(212, 38, 64); // same as $primary at 50% opacity over white;
+// $color-a: hsl(202, 100, 61);
+// $color-b: hsl(128, 77, 50);
+// $color-c: hsl(49, 100, 55);
+// $color-d: hsl(333, 100, 55);
+// $color-e: hsl(232, 100, 55);
+// $color-f: hsl(279, 100, 61);
+
+/*
+* * FONT DECLARATIONS
+*/
+@mixin regular-font {
+    font-family: "Open Sans", sans-serif;
+    // font-family: "Roboto slab", serif;
+    font-weight: 400;
+    color: #2c3f58;
+    font-size: 0.875rem;
+}
+@mixin long-font {
+    // font-family: "Open Sans", sans-serif;
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    color: #2c3f58;
+    letter-spacing: 0.3px;
+    line-height: 1.35rem;
+}
