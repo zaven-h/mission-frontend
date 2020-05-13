@@ -28,14 +28,16 @@ function TasksList({ orgId }) {
             <div>Tasks:</div>
             <div>
                 {data.tasks &&
-                    data.tasks.map(task => (
-                        <TaskDetail
-                            key={task._id}
-                            taskObj={task}
-                            isSelected={selNodeId === task._id}
-                            onClick={() => setSelNodeId(task._id)}
-                        />
-                    ))}
+                    data.tasks
+                        .filter(task => !('parent' in task))
+                        .map(task => (
+                            <TaskDetail
+                                key={task._id}
+                                taskObj={task}
+                                isSelected={selNodeId === task._id}
+                                onClick={() => setSelNodeId(task._id)}
+                            />
+                        ))}
             </div>
             <button onClick={addTask}>Add Task</button>
         </div>
