@@ -9,10 +9,10 @@ function TaskDetail({ taskObj, isSelected }) {
     const [name, setName] = useState(taskObj.properties.name);
     const [assignees, setAssignees] = useState(taskObj.assignees);
 
-    const [addTask] = useTaskCreate({
-        variables: { name: '', orgId: taskObj.orgId },
-        refetchQueries: GET_ORGANIZATION,
-    });
+    // const [addTask] = useTaskCreate({
+    //     variables: { name: '', orgId: taskObj.orgId },
+    //     refetchQueries: GET_ORGANIZATION,
+    // });
 
     return (
         <div className={`Task ${isSelected ? 'selected' : ''}`}>
@@ -26,7 +26,7 @@ function TaskDetail({ taskObj, isSelected }) {
                 value={assignees.join()}
                 onChange={e => setAssignees(e.target.value.split(','))}
             />
-            <button onClick={addTask}>Add Task</button>
+            {/* <button onClick={addTask}>Add Task</button> */}
         </div>
     );
 }
