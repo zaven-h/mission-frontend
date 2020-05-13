@@ -14,10 +14,10 @@
         width: 64px;
         height: 64px;
         margin: 8px;
-        border: 6px solid #3E9BB9;
+        border: 6px solid #3e9bb9;
         border-radius: 50%;
         animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: #3E9BB9 transparent transparent transparent;
+        border-color: #3e9bb9 transparent transparent transparent;
     }
 
     & div:nth-child(1) {
@@ -29,7 +29,7 @@
     }
 
     & div:nth-child(3) {
-    animation-delay: -0.15s;
+        animation-delay: -0.15s;
     }
 }
 @keyframes lds-ring {

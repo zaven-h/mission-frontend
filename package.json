@@ -18,7 +18,8 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "prettier:fix": "prettier --write ."
     },
     "eslintConfig": {
         "extends": "react-app"
@@ -36,6 +37,14 @@
         ]
     },
     "devDependencies": {
-        "graphql": "^15.0.0"
+        "graphql": "^15.0.0",
+        "husky": "^4.2.5",
+        "prettier": "^2.0.5",
+        "pretty-quick": "^2.0.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
     }
 }

@@ -6,7 +6,7 @@ import { GET_CURRENT_USER } from '../../../graphql/queries/auth';
 
 import './loginForm.scss';
 
-function LoginForm () {
+function LoginForm() {
     const [userInfo, setUserInfo] = useState({
         email: '',
         password: '',
@@ -14,30 +14,35 @@ function LoginForm () {
     const [doLogin, { error }] = useLogin({
         variables: userInfo,
         refetchQueries: [{ query: GET_CURRENT_USER }],
-        onError: (error) => {},
+        onError: error => {},
         onCompleted: () => navigate('/orgs'),
     });
 
-    const handleChange = (e) => {
+    const handleChange = e => {
         const { name, value } = e.target;
         setUserInfo({
             ...userInfo,
-            [name]: value
+            [name]: value,
         });
-    }
+    };
 
     return (
         <div className="LoginForm">
             <h1>Log In</h1>
-            {error && 
+            {error &&
                 error.graphQLErrors.map(({ message }, i) => (
                     <div key={i} className="error">
                         {message}
                     </div>
-                ))
-            }
+                ))}
             <div className="LoginForm__login">
-                <input type="email" name="email" placeholder="email..." value={userInfo.email} onChange={handleChange} />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="email..."
+                    value={userInfo.email}
+                    onChange={handleChange}
+                />
                 <input
                     type="password"
                     name="password"

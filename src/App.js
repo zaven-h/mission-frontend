@@ -11,7 +11,11 @@ import OrgsList from './pages/organization/OrganizationsList/OrganizationsList';
 import TasksList from './pages/task/TasksList/TasksList';
 import LoadingFallback from './components/LoadingFallback/LoadingFallback';
 
-import { useCurrentUser, useIsLoggedIn, LOGGED_IN } from './graphql/queries/auth';
+import {
+    useCurrentUser,
+    useIsLoggedIn,
+    LOGGED_IN,
+} from './graphql/queries/auth';
 
 import './styles/setup.scss';
 
@@ -26,7 +30,6 @@ function App() {
 
     if (!loading && !error) {
         if (data.currentUser) {
-            console.log('data: ', data);
             client.writeQuery({
                 query: LOGGED_IN,
                 data: { isLoggedIn: true },
@@ -35,8 +38,9 @@ function App() {
     }
     const isLoggedIn = useIsLoggedIn();
 
-    return loading ? 
-        <LoadingFallback /> : (
+    return loading ? (
+        <LoadingFallback />
+    ) : (
         <div className="App">
             {/* Set up primary navigation for authenticated or public */}
             {!isLoggedIn ? (

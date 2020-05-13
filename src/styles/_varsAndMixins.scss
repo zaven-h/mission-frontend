@@ -36,7 +36,7 @@ us to update color schemes later and not have to refactor any code. Yay!
 * * FONT DECLARATIONS
 */
 @mixin regular-font {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     // font-family: "Roboto slab", serif;
     font-weight: 400;
     color: #2c3f58;
@@ -44,7 +44,7 @@ us to update color schemes later and not have to refactor any code. Yay!
 }
 @mixin long-font {
     // font-family: "Open Sans", sans-serif;
-    font-family: "Merriweather", serif;
+    font-family: 'Merriweather', serif;
     font-weight: 400;
     color: #2c3f58;
     letter-spacing: 0.3px;

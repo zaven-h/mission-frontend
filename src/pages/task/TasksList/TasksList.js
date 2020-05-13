@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 
 import LoadingFallback from '../../../components/LoadingFallback/LoadingFallback';
 import TaskDetail from '../TaskDetail/TaskDetail';
-import { GET_ORGANIZATION, useOrganization } from '../../../graphql/queries/organization';
+import {
+    GET_ORGANIZATION,
+    useOrganization,
+} from '../../../graphql/queries/organization';
 import { useTaskCreate } from '../../../graphql/mutations/task';
 
 import './tasksList.scss';
 
-function TasksList ({ orgId }) {
+function TasksList({ orgId }) {
     const [selNodeId, setSelNodeId] = useState(null);
 
     const { loading, error, data } = useOrganization({ orgId });
@@ -25,7 +28,7 @@ function TasksList ({ orgId }) {
             <div>Tasks:</div>
             <div>
                 {data.tasks &&
-                    data.tasks.map((task) => (
+                    data.tasks.map(task => (
                         <TaskDetail
                             key={task._id}
                             taskObj={task}
@@ -37,6 +40,6 @@ function TasksList ({ orgId }) {
             <button onClick={addTask}>Add Task</button>
         </div>
     );
-};
+}
 
 export default TasksList;

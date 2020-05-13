@@ -17,7 +17,7 @@ export default () => {
                 <input
                     type="text"
                     value={orgNameInput}
-                    onChange={(e) => setOrgNameInput(e.target.value)}
+                    onChange={e => setOrgNameInput(e.target.value)}
                     placeholder="Name of Organization"
                 />
                 <button onClick={createOrganization}>Create!</button>

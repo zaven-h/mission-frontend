@@ -4,7 +4,7 @@ The below is Eric Meyer's standard browser reset utility. While this will wonder
 set all browsers to a common default, please note that it will also reset some expected
 behaviours. For example, "<em />" will not set italics unless specified in the css.
 */
-@import "reset";
+@import 'reset';
 
 /* 
 * * BORDER-BOX
@@ -28,8 +28,8 @@ percentage of the browser's default font size. Basing sizing off of this allows 
 adapt to user adjusted font sizes. The standard browser default font size is 16px. Thus, a value 
 of 1rem is 16px. 
 */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Merriweather:300&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:300&display=swap');
 
 /*
 * * FONT SIZE RESET
@@ -70,7 +70,7 @@ option,
 output,
 section,
 summary {
-    font-family: "Open Sans", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     line-height: 1.35rem;
     color: #000;
@@ -81,4 +81,4 @@ summary {
 /*
 * * DEFAULT STYLES
 */
-@import "defaults";
+@import 'defaults';

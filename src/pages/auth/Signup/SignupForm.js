@@ -3,7 +3,7 @@ import { Link, navigate } from '@reach/router';
 
 import { useSignup } from '../../../graphql/mutations/auth';
 
-import './signupForm.scss'
+import './signupForm.scss';
 
 export default () => {
     const [userInfo, setUserInfo] = useState({
@@ -13,29 +13,36 @@ export default () => {
     });
     const [doSignup, { error }] = useSignup({
         variables: { ...userInfo },
-        onError: (error) => {},
-        onCompleted: (data) => {
+        onError: error => {},
+        onCompleted: data => {
             if (data.signup) {
                 navigate('/login');
             }
         },
     });
 
-    const handleChange = (e) => {
-        const {name, value} = e.target;
+    const handleChange = e => {
+        const { name, value } = e.target;
         setUserInfo({ ...userInfo, [name]: value });
     };
 
     return (
         <div className="SignupForm">
             <h1>Sign Up</h1>
-            {error && error.graphQLErrors.map(({ message }, i) => (
-                <div key={i} className="error">
-                    {message}
-                </div>
-            ))}
+            {error &&
+                error.graphQLErrors.map(({ message }, i) => (
+                    <div key={i} className="error">
+                        {message}
+                    </div>
+                ))}
             <div className="SignupForm__signup">
-                <input type="email" name="email" placeholder="email..." value={userInfo.email} onChange={handleChange} />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="email..."
+                    value={userInfo.email}
+                    onChange={handleChange}
+                />
                 <input
                     type="password"
                     name="password"

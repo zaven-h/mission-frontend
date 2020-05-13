@@ -2,7 +2,7 @@ import React from 'react';
 
 import './LoadingFallback.scss';
 
-function LoadingFallback () {
+function LoadingFallback() {
     return (
         <div className="lds-ring">
             <div></div>

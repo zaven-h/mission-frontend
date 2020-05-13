@@ -18,15 +18,20 @@ export default () => {
         <div className="OrgsList">
             <div className="OrgsList-orgs">
                 <ul>
-                    {data.orgs && data.orgs.map((org) => (
-                        <li key={org._id}>
-                            <Link to={`/org/${org._id}`}>{org.properties.name}</Link>
-                        </li>
-                    ))}
+                    {data.orgs &&
+                        data.orgs.map(org => (
+                            <li key={org._id}>
+                                <Link to={`/org/${org._id}`}>
+                                    {org.properties.name}
+                                </Link>
+                            </li>
+                        ))}
                 </ul>
             </div>
             {!isShowForm ? (
-                <button onClick={() => setIsShowForm(true)}>Create New Org</button>
+                <button onClick={() => setIsShowForm(true)}>
+                    Create New Org
+                </button>
             ) : (
                 <>
                     <OrgCreateForm />
