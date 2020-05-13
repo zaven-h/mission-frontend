@@ -31,11 +31,7 @@ export const useIsLoggedIn = () => {
     const client = useApolloClient();
 
     const data = client.readQuery({
-        query: gql`
-            {
-                isLoggedIn
-            }
-        `,
+        query: LOGGED_IN
     });
     return data.isLoggedIn;
 };

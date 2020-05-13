@@ -1,21 +1,25 @@
 import React from 'react';
+import { useApolloClient } from '@apollo/client';
 import { navigate } from '@reach/router';
-import jsCookie from 'js-cookie';
 
-import { useCurrentUser } from '../../graphql/queries/auth';
+import { useCurrentUser, LOGGED_IN } from '../../graphql/queries/auth';
+import { useLogout } from '../../graphql/mutations/auth';
 
 import './authenticatedHeader.scss';
 
 export default () => {
+    const client = useApolloClient();
     const currentUser = useCurrentUser();
-
-    const logout = () => {
-        const domain = window.location.host.includes("localhost") ? null : "mission-backend.herokuapp.com";
-        jsCookie.remove("access-token", { domain: domain, path: "/" }); // added attrs not helping
-        jsCookie.remove("refresh-token");
-        navigate("/");
-        window.location.reload();
-    };
+    const [logout] = useLogout({
+        onCompleted: () => {
+            client.writeQuery({
+                query: LOGGED_IN,
+                data: { isLoggedIn: false },
+            });
+            navigate('/');
+            window.location.reload();
+        },
+    });
 
     return (
         <div className="Header">

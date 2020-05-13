@@ -11,7 +11,7 @@ export default () => {
         password: '',
         password2: '',
     });
-    const [doSignup, { data, error }] = useSignup({
+    const [doSignup, { error }] = useSignup({
         variables: { ...userInfo },
         onError: (error) => {},
         onCompleted: (data) => {

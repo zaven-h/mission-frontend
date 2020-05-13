@@ -14,3 +14,9 @@ export const useSignup = createMutationHook(gql`
         signup(email: $email, password: $password, password2: $password2)
     }
 `);
+
+export const useLogout = createMutationHook(gql`
+    mutation Logout {
+        logout
+    }
+`);

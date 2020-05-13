@@ -26,6 +26,7 @@ function App() {
 
     if (!loading && !error) {
         if (data.currentUser) {
+            console.log('data: ', data);
             client.writeQuery({
                 query: LOGGED_IN,
                 data: { isLoggedIn: true },
